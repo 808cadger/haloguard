@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <title>HaloGuard</title>
+  <link rel="manifest" href="./manifest.json" />
+  <link rel="stylesheet" href="./style.css" />
+  <meta name="theme-color" content="#0a0a1a" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+</head>
+<body class="dark">
+
+  <!-- HALO STATUS BAR -->
+  <div id="halo-bar" class="halo-bar">
+    <div id="halo-dot" class="halo-dot pulse-blue"></div>
+    <span id="halo-status-text">HaloGuard is protecting you</span>
+    <button class="halo-settings-btn" onclick="showSettings()">⚙️</button>
+  </div>
+
+  <!-- MAIN DASHBOARD -->
+  <div id="screen-dashboard" class="screen active">
+
+    <!-- GREETING -->
+    <div class="dashboard-greeting">
+      <h2 id="greeting-text">Hello!</h2>
+      <p id="greeting-sub">What do you need help with today?</p>
+    </div>
+
+    <!-- QUICK ACTION TILES -->
+    <div class="quick-actions">
+      <button class="tile" onclick="quickPrompt('Check if this is a scam: ')">
+        <span class="tile-icon">🚨</span>
+        <span>Check for Scam</span>
+      </button>
+      <button class="tile" onclick="quickPrompt('Write a professional resume for me. Here is my background: ')">
+        <span class="tile-icon">📄</span>
+        <span>Build Resume</span>
+      </button>
+      <button class="tile" onclick="quickPrompt('Give me a simple recipe for ')">
+        <span class="tile-icon">🍽️</span>
+        <span>Recipe</span>
+      </button>
+      <button class="tile" onclick="quickPrompt('Directions to ')">
+        <span class="tile-icon">📍</span>
+        <span>Directions</span>
+      </button>
+      <button class="tile" onclick="quickPrompt('Help me write a contractor estimate for ')">
+        <span class="tile-icon">🔨</span>
+        <span>Job Estimate</span>
+      </button>
+      <button class="tile" onclick="quickPrompt('Explain this to me in simple terms: ')">
+        <span class="tile-icon">💡</span>
+        <span>Explain This</span>
+      </button>
+    </div>
+
+    <!-- CHAT -->
+    <div id="chat-container" class="chat-container">
+      <div id="chat-messages" class="chat-messages"></div>
+    </div>
+
+    <!-- INPUT -->
+    <div class="chat-input-bar">
+      <textarea
+        id="user-input"
+        class="chat-input"
+        placeholder="Ask me anything..."
+        rows="1"
+        onkeydown="handleKey(event)"
+        oninput="autoResize(this)"
+      ></textarea>
+      <button id="send-btn" class="send-btn" onclick="sendMessage()">
+        <span>➤</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- SETTINGS PANEL -->
+  <div id="screen-settings" class="screen settings-panel">
+    <div class="settings-top">
+      <button class="btn-ghost" onclick="hideSettings()">← Back</button>
+      <h3>Settings</h3>
+    </div>
+    <div class="settings-body">
+      <div class="input-group">
+        <label>Claude API Key</label>
+        <input type="password" id="settings-api-key" placeholder="sk-ant-..." autocomplete="off" />
+        <small>Stored only on your device</small>
+      </div>
+      <button class="btn-primary full-width" onclick="updateApiKey()">Save Key</button>
+
+      <hr class="divider" />
+
+      <button class="btn-danger full-width" onclick="resetApp()">Reset App & Profile</button>
+    </div>
+  </div>
+
+  <!-- FRAUD ALERT OVERLAY -->
+  <div id="fraud-alert" class="fraud-alert hidden">
+    <div class="fraud-alert-box">
+      <div class="fraud-icon">🚨</div>
+      <h3>Potential Scam Detected</h3>
+      <p id="fraud-detail"></p>
+      <div class="fraud-actions">
+        <button class="btn-danger" onclick="closeFraudAlert()">Stop — Don't Send</button>
+        <button class="btn-ghost" onclick="closeFraudAlert()">I'll Be Careful</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="./profile.js"></script>
+  <script src="./assistant.js"></script>
+</body>
+</html>

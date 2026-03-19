@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <title>HaloGuard</title>
+  <link rel="manifest" href="./manifest.json" />
+  <link rel="stylesheet" href="./style.css" />
+  <meta name="theme-color" content="#0a0a1a" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+</head>
+<body class="dark">
+
+  <!-- SPLASH -->
+  <div id="screen-splash" class="screen active">
+    <div class="splash-center">
+      <div class="halo-logo">
+        <div class="halo-ring"></div>
+        <div class="halo-inner">
+          <span class="shield-icon">🛡</span>
+        </div>
+      </div>
+      <h1 class="app-name">HaloGuard</h1>
+      <p class="tagline">Someone's always watching out for you</p>
+    </div>
+  </div>
+
+  <!-- WELCOME -->
+  <div id="screen-welcome" class="screen">
+    <div class="welcome-center">
+      <div class="halo-logo">
+        <div class="halo-ring"></div>
+        <div class="halo-inner"><span class="shield-icon">🛡</span></div>
+      </div>
+      <h2 class="welcome-title">Welcome to HaloGuard</h2>
+      <p class="welcome-body">
+        Scams are everywhere. People lose money, trust, and sleep over them every single day — and it shouldn't be that way.
+      </p>
+      <p class="welcome-body">
+        HaloGuard runs quietly in the background and catches threats before they reach you. It also helps you with anything life throws your way — from writing a resume to finding a good restaurant nearby.
+      </p>
+      <p class="welcome-body warm">
+        Before we get started, we'd love to get to know you a little. The more we know, the better we can protect and help you.
+      </p>
+      <button class="btn-primary full-width" onclick="startOnboarding()">Let's get started →</button>
+    </div>
+  </div>
+
+  <!-- ONBOARDING -->
+  <div id="screen-onboarding" class="screen">
+    <div class="onboard-header">
+      <div class="progress-bar"><div id="progress-fill" class="progress-fill"></div></div>
+      <span id="step-label" class="step-label">Step 1 of 5</span>
+    </div>
+
+    <div class="onboard-body">
+      <h2 id="question-text" class="question-text"></h2>
+      <p id="question-sub" class="question-sub"></p>
+      <div id="options-container" class="options-container"></div>
+    </div>
+
+    <div class="onboard-footer">
+      <button id="btn-back" class="btn-ghost" onclick="prevStep()">Back</button>
+      <button id="btn-next" class="btn-primary" onclick="nextStep()" disabled>Next</button>
+    </div>
+  </div>
+
+  <!-- SETTINGS (API KEY) -->
+  <div id="screen-settings" class="screen">
+    <div class="settings-header">
+      <div class="halo-small">
+        <div class="halo-ring-sm"></div>
+        <span class="shield-icon-sm">🛡</span>
+      </div>
+      <h2>Almost there! 🙌</h2>
+      <p>You're just one step away from having a guardian on your side 24/7. To turn on your AI, you'll need a free Claude key. It lives on your phone only — we never see it.</p>
+    </div>
+    <div class="settings-body">
+      <div class="input-group">
+        <label>Claude API Key</label>
+        <input type="password" id="api-key-input" placeholder="sk-ant-..." autocomplete="off" />
+        <small>Get your key at <strong>console.anthropic.com</strong></small>
+      </div>
+      <div class="security-note">
+        <span>🔒</span>
+        <span>Stored locally on your device only. Never sent to any server except Anthropic directly.</span>
+      </div>
+    </div>
+    <div class="settings-footer">
+      <button class="btn-primary full-width" onclick="saveApiKey()">Turn On My Protection →</button>
+    </div>
+  </div>
+
+  <script src="./onboarding.js"></script>
+</body>
+</html>

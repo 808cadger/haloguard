@@ -1,0 +1,15 @@
+{
+  "appId": "com.haloguard.app",
+  "appName": "HaloGuard",
+  "webDir": ".",
+  "server": {
+    "androidScheme": "https"
+  },
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 2000,
+      "backgroundColor": "#0a0a1a",
+      "showSpinner": false
+    }
+  }
+}

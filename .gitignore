@@ -1,0 +1,9 @@
+node_modules/
+android/
+ios/
+.env
+.env.local
+*.keystore
+google-services.json
+dist/
+.DS_Store
