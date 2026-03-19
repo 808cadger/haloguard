@@ -293,6 +293,86 @@ body {
   flex-direction: column;
 }
 
+/* ── Tab Bar ── */
+.tab-bar {
+  display: flex;
+  border-bottom: 1px solid #2a2a4a;
+  background: #0a0a1a;
+  position: sticky;
+  top: 44px;
+  z-index: 50;
+}
+.tab {
+  flex: 1;
+  background: none;
+  border: none;
+  color: #8888bb;
+  padding: 0.7rem 0.4rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+}
+.tab.active { color: #a78bfa; border-bottom-color: #6c63ff; }
+
+.tab-content { display: none; flex: 1; }
+.tab-content.active { display: flex; flex-direction: column; }
+
+/* ── Check This Tab ── */
+.check-panel { padding: 1.2rem; display: flex; flex-direction: column; gap: 1rem; }
+.check-intro { text-align: center; padding: 0.5rem 0; }
+.check-icon { font-size: 2.5rem; margin-bottom: 0.5rem; }
+.check-intro h3 { font-size: 1.1rem; margin-bottom: 0.4rem; }
+.check-intro p { color: #8888bb; font-size: 0.9rem; line-height: 1.6; }
+.check-textarea {
+  background: #16163a;
+  border: 2px solid #2a2a4a;
+  color: #f0f0f0;
+  border-radius: 12px;
+  padding: 1rem;
+  font-size: 0.95rem;
+  resize: none;
+  width: 100%;
+  line-height: 1.5;
+}
+.check-textarea:focus { outline: none; border-color: #6c63ff; }
+.check-btn { margin-top: 0.2rem; }
+.check-result {
+  border-radius: 12px;
+  padding: 1rem;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+.check-result.safe { background: #0f2a1a; border: 1px solid #166534; color: #86efac; }
+.check-result.danger { background: #2a0a0a; border: 1px solid #7f1d1d; color: #fca5a5; }
+.check-result.hidden { display: none; }
+
+/* ── Scam Log Tab ── */
+.log-panel { padding: 1.2rem; display: flex; flex-direction: column; gap: 0.8rem; }
+.log-header-row { display: flex; justify-content: space-between; align-items: center; }
+.log-header-row h3 { font-size: 1.1rem; }
+.log-sub { color: #8888bb; font-size: 0.85rem; }
+.btn-ghost-sm {
+  background: none; border: 1px solid #2a2a4a; color: #8888bb;
+  border-radius: 8px; padding: 0.3rem 0.8rem; font-size: 0.8rem; cursor: pointer;
+}
+.scam-log-list { display: flex; flex-direction: column; gap: 0.6rem; }
+.log-entry {
+  background: #16163a;
+  border: 1px solid #2a2a4a;
+  border-radius: 10px;
+  padding: 0.8rem 1rem;
+}
+.log-entry.danger { border-color: #7f1d1d; background: #1a0a0a; }
+.log-entry.safe  { border-color: #166534; background: #0a1a0f; }
+.log-entry-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.3rem; }
+.log-badge { font-size: 0.75rem; font-weight: 700; padding: 0.2rem 0.5rem; border-radius: 6px; }
+.log-badge.danger { background: #7f1d1d; color: #fca5a5; }
+.log-badge.safe  { background: #166534; color: #86efac; }
+.log-time { font-size: 0.75rem; color: #8888bb; }
+.log-text { font-size: 0.85rem; color: #c0c0e0; word-break: break-all; }
+.log-empty { color: #8888bb; font-size: 0.9rem; text-align: center; padding: 2rem 0; }
+
 /* ── Halo small ── */
 .halo-small { position: relative; width: 60px; height: 60px; margin: 0 auto; }
 .halo-ring-sm {

@@ -28,35 +28,77 @@
       <p id="greeting-sub">What do you need help with today?</p>
     </div>
 
-    <!-- QUICK ACTION TILES -->
-    <div class="quick-actions">
-      <button class="tile" onclick="quickPrompt('Check if this is a scam: ')">
-        <span class="tile-icon">🚨</span>
-        <span>Check for Scam</span>
-      </button>
-      <button class="tile" onclick="quickPrompt('Write a professional resume for me. Here is my background: ')">
-        <span class="tile-icon">📄</span>
-        <span>Build Resume</span>
-      </button>
-      <button class="tile" onclick="quickPrompt('Give me a simple recipe for ')">
-        <span class="tile-icon">🍽️</span>
-        <span>Recipe</span>
-      </button>
-      <button class="tile" onclick="quickPrompt('Directions to ')">
-        <span class="tile-icon">📍</span>
-        <span>Directions</span>
-      </button>
-      <button class="tile" onclick="quickPrompt('Help me write a contractor estimate for ')">
-        <span class="tile-icon">🔨</span>
-        <span>Job Estimate</span>
-      </button>
-      <button class="tile" onclick="quickPrompt('Explain this to me in simple terms: ')">
-        <span class="tile-icon">💡</span>
-        <span>Explain This</span>
-      </button>
+    <!-- TAB BAR -->
+    <div class="tab-bar">
+      <button class="tab active" id="tab-chat" onclick="switchTab('chat')">💬 Assistant</button>
+      <button class="tab" id="tab-check" onclick="switchTab('check')">🔍 Check This</button>
+      <button class="tab" id="tab-log" onclick="switchTab('log')">📋 Scam Log</button>
     </div>
 
-    <!-- CHAT -->
+    <!-- CHAT TAB -->
+    <div id="tab-chat-content" class="tab-content active">
+      <!-- QUICK ACTION TILES -->
+      <div class="quick-actions">
+        <button class="tile" onclick="quickPrompt('Check if this is a scam: ')">
+          <span class="tile-icon">🚨</span>
+          <span>Check for Scam</span>
+        </button>
+        <button class="tile" onclick="quickPrompt('Write a professional resume for me. Here is my background: ')">
+          <span class="tile-icon">📄</span>
+          <span>Build Resume</span>
+        </button>
+        <button class="tile" onclick="quickPrompt('Give me a simple recipe for ')">
+          <span class="tile-icon">🍽️</span>
+          <span>Recipe</span>
+        </button>
+        <button class="tile" onclick="quickPrompt('Directions to ')">
+          <span class="tile-icon">📍</span>
+          <span>Directions</span>
+        </button>
+        <button class="tile" onclick="quickPrompt('Help me write a contractor estimate for ')">
+          <span class="tile-icon">🔨</span>
+          <span>Job Estimate</span>
+        </button>
+        <button class="tile" onclick="quickPrompt('Explain this to me in simple terms: ')">
+          <span class="tile-icon">💡</span>
+          <span>Explain This</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- CHECK THIS TAB -->
+    <div id="tab-check-content" class="tab-content">
+      <div class="check-panel">
+        <div class="check-intro">
+          <div class="check-icon">🔍</div>
+          <h3>Check Anything Before You Act</h3>
+          <p>Paste a link, a message, a payment request, or an email — HaloGuard will tell you if it's safe before you send money or click anything.</p>
+        </div>
+        <textarea
+          id="check-input"
+          class="check-textarea"
+          placeholder="Paste a link, message, email, or payment request here..."
+          rows="5"
+          onpaste="handlePasteCheck(event)"
+        ></textarea>
+        <button class="btn-primary full-width check-btn" onclick="runCheck()">🔍 Analyze This Now</button>
+        <div id="check-result" class="check-result hidden"></div>
+      </div>
+    </div>
+
+    <!-- SCAM LOG TAB -->
+    <div id="tab-log-content" class="tab-content">
+      <div class="log-panel">
+        <div class="log-header-row">
+          <h3>Scam History</h3>
+          <button class="btn-ghost-sm" onclick="clearLog()">Clear All</button>
+        </div>
+        <p class="log-sub">Everything HaloGuard has flagged for you.</p>
+        <div id="scam-log-list" class="scam-log-list"></div>
+      </div>
+    </div>
+
+    <!-- CHAT (inside chat tab) -->
     <div id="chat-container" class="chat-container">
       <div id="chat-messages" class="chat-messages"></div>
     </div>
@@ -70,6 +112,7 @@
         rows="1"
         onkeydown="handleKey(event)"
         oninput="autoResize(this)"
+        onpaste="handlePasteMain(event)"
       ></textarea>
       <button id="send-btn" class="send-btn" onclick="sendMessage()">
         <span>➤</span>
