@@ -1,5 +1,12 @@
 # HaloGuard 🛡️
 
+## Download Links
+
+- **iOS / iPhone:** Open the PWA in Safari: [HaloGuard iOS install](https://808cadger.github.io/haloguard/) and choose **Share -> Add to Home Screen**.
+- **Android:** Download the latest APK from GitHub Releases: [HaloGuard Android releases](https://github.com/808cadger/haloguard/releases/latest).
+- **Source download:** [Download the GitHub source ZIP](https://github.com/808cadger/haloguard/archive/refs/heads/main.zip).
+
+
 <!-- INSTALL-START -->
 ## Install and run
 
