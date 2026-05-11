@@ -1,10 +1,35 @@
-# HaloGuard 🛡️
+# HaloGuard
+
+[![Release](https://img.shields.io/github/v/release/808cadger/haloguard?include_prereleases&label=release)](https://github.com/808cadger/haloguard/releases)
+[![Last commit](https://img.shields.io/github/last-commit/808cadger/haloguard)](https://github.com/808cadger/haloguard/commits)
+[![License](https://img.shields.io/github/license/808cadger/haloguard)](https://github.com/808cadger/haloguard/blob/HEAD/LICENSE)
+![Platforms](https://img.shields.io/badge/platform-Web%2FPWA%2C%20Android-2563eb)
+
+Silent AI fraud detection and personal-assistant prototype focused on protection workflows.
+
+## Project Snapshot
+
+| Area | Details |
+|------|---------|
+| Primary use case | Silent AI fraud detection and personal-assistant prototype focused on protection workflows. |
+| Platforms | Web/PWA, Android |
+| Core stack | JavaScript, Capacitor, PWA, Android |
+| Review first | `index.html`, `capacitor.config.json`, `package.json` |
 
 ## Download Links
 
-- **iOS / iPhone:** Open the PWA in Safari: [HaloGuard iOS install](https://808cadger.github.io/haloguard/) and choose **Share -> Add to Home Screen**.
-- **Android:** Download the latest APK from GitHub Releases: [HaloGuard Android releases](https://github.com/808cadger/haloguard/releases/latest).
-- **Source download:** [Download the GitHub source ZIP](https://github.com/808cadger/haloguard/archive/refs/heads/main.zip).
+| Platform | Link |
+|----------|------|
+| iOS / iPhone | [Open the PWA in Safari](https://808cadger.github.io/haloguard/) and choose **Share -> Add to Home Screen** |
+| Android | [Download the latest APK from GitHub Releases](https://github.com/808cadger/haloguard/releases/latest) |
+| Source | [Download the GitHub source ZIP](https://github.com/808cadger/haloguard/archive/refs/heads/master.zip) |
+| Repository | [View on GitHub](https://github.com/808cadger/haloguard) |
+
+## Why This Repo Is Worth Reviewing
+
+- Security-oriented user flow focused on fraud awareness.
+- PWA packaging keeps installation lightweight.
+- Capacitor setup provides an Android path when native packaging is needed.
 
 
 <!-- INSTALL-START -->
