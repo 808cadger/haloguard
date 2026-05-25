@@ -1,7 +1,7 @@
 {
   "appId": "com.haloguard.app",
   "appName": "HaloGuard",
-  "webDir": ".",
+  "webDir": "www",
   "server": {
     "androidScheme": "https"
   },
