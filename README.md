@@ -116,7 +116,7 @@ Progressive Q&A learns who you are on first launch. Connect Google, Facebook, or
 | Frontend | HTML, CSS, JavaScript |
 | AI | Claude claude-sonnet-4-6 (Anthropic API) |
 | Mobile | Capacitor (Android + PWA) |
-| Storage | localStorage (API key never leaves your device) |
+| Storage | localStorage (key is sent to Anthropic only for live AI requests) |
 
 ---
 
@@ -132,7 +132,7 @@ Progressive Q&A learns who you are on first launch. Connect Google, Facebook, or
 
 1. Get a Claude API key at [console.anthropic.com](https://console.anthropic.com)
 2. Open the app — enter your key on the setup screen
-3. Your key stays on your device only — never shared
+3. Your key is stored in this browser and sent to Anthropic when you use live AI features
 
 ---
 

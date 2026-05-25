@@ -23,7 +23,7 @@ npx serve .
 - **Halo States**: Blue=monitoring, Green=safe, Red=threat
 - **#ASSUMPTION**: Profile loaded for personalization; TODO: null guards
 - **Personalization**: "Answer as if you know [profile: job/location/skills]"
-- **Privacy**: localStorage only (API key/profile/scam log)
+- **Privacy**: profile/scam log stored locally; API key is sent to Anthropic for live analysis
 - **Tabs**: Check This | Assistant | Scam Log | Profile
 - **Phases**: MVP (scan+log) → Real-time → Family sharing → Alerts
 
